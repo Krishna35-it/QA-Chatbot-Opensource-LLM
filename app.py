@@ -28,7 +28,7 @@ def generate_response(question,engine,temperature,max_tokens):
     return answer
 
 #streamlit
-st.title("Enhanced Q&A chatbot with OpenAI")
+st.title("Enhanced Q&A chatbot with Ollama")
 
 engine = st.sidebar.selectbox("Select an AI Model",["gemma3:1b"])
 temperature = st.sidebar.slider("Temperature",min_value=0.0,max_value=1.0,value=0.7)
@@ -41,4 +41,5 @@ if user_input:
     response = generate_response(user_input,engine,temperature,max_tokens)
     st.markdown(f"Answer: {response}")
 else:
+
     st.write("Please provide user input")
