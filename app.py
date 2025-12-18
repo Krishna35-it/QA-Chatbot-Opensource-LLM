@@ -21,7 +21,7 @@ prompt = ChatPromptTemplate.from_messages(
 )
 
 def generate_response(question,engine,temperature,max_tokens):
-    llm = Ollama(model = engine)
+    llm = Ollama(model = engine, temperature = temperature, num_predict = max_tokens)
     output_parser = StrOutputParser()
     chain = prompt|llm|output_parser
     answer = chain.invoke({"question":question})
@@ -43,3 +43,4 @@ if user_input:
 else:
 
     st.write("Please provide user input")
+
